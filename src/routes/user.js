@@ -26,6 +26,11 @@ userRoutes.post('/authenticate', function(req, res) {
   User.findOne({
     username: req.body.username
   }, function(err, user) {
+    // This Error throwing will kill your server.
+    // You can handle this more gracefully by sending an error up to the
+    // caller by calling next(err). That will require you add the next field
+    // after req, res in the parameters of your usersRoutes.post call back above
+    //  -- HAROLD
     if (err) throw err;
     if (!user) {
       res.json({ success: false, message: 'Authentication failed. User not found.'});

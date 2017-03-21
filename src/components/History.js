@@ -6,6 +6,7 @@ import { Row, Col} from 'react-bootstrap';
 class History extends React.Component{
 
   render(){
+    // indenting... -- HAROLD
     let eachWheel = this.props.wheelStore.wheels.map(wheel =>
     <div key={wheel._id}>
       <Row>

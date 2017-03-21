@@ -74,7 +74,7 @@ export default class WheelStore {
 }
 
 
-
+// In general it's not good practice to check in commented out code. -- HAROLD
 
 //   handleDelete(imgId) {
 //     let newList = this.images.filter(img => img._id !== imgId);

@@ -5,6 +5,8 @@ const wheelRoutes = express.Router();
 
 wheelRoutes.post('/wheels',function(req, res){
   let wheel = new Wheel();
+  // Changing your schema for the wheel will make it possible to set up below
+  // with a nice loop - HAROLD
   wheel.date = req.body.date;
   wheel.value1  = req.body.value1;
   wheel.score1 = req.body.score1;
