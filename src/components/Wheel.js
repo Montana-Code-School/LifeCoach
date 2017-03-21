@@ -53,7 +53,8 @@ class Wheel extends React.Component{
     }
 
 
-
+  // It will make your JSX easier to maintain if you break up the below into
+  // sub components -- HAROLD
   render(){
     return (
       <div className="container">

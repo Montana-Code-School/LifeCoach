@@ -1,5 +1,8 @@
 const mongoose = require('mongoose');
 
+// You might consider converting this to an array of value/score fields
+// it will make your Schema smaller and make it possible to support wheels
+// with different numbers of fields -- HAROLD
 const WheelSchema = new mongoose.Schema({
   date: Date,
   value1: String,

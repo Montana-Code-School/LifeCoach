@@ -11,6 +11,7 @@ class Navigation extends React.Component {
   }
 
   render() {
+    // JSX Indenting below needs attention - HAROLD
     return (
       <div>
         <Navbar inverse collapseOnSelect>
