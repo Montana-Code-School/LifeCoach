@@ -44,7 +44,7 @@ class History extends React.Component{
             <h2 className="subheader2">Your History</h2>
 
             <div className="canvasCenter">
-            <h3>
+            <h3 className="subheader">
                 {dateFormat(wheelArray[index].date,
                    "dddd, mmmm dS, yyyy, h:MM TT")}
             </h3>
@@ -70,7 +70,7 @@ class History extends React.Component{
         <div className="background-container2">
           <div className="container">
               <h1 className="jumbotronHeader2">Your History</h1>
-            <div>you have not filled out a wheel! </div>
+            <div className="subheader3">You have not filled out any wheels yet! </div>
           </div>
         </div>
       );
