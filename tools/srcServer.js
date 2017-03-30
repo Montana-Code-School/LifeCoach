@@ -3,6 +3,7 @@ import webpack from 'webpack';
 import path from 'path';
 import config from '../webpack.config.dev';
 import open from 'open';
+// Try to only do import for dependencies, not require - Harold
 const bodyParser = require('body-parser');
 const uriUtil = require('mongodb-uri');
 import User from '../models/user';
@@ -29,7 +30,7 @@ const port = process.env.PORT || 3000;
 const app = express();
 const PROD = process.env.NODE_ENV === 'production';
 
-
+// get this secret from a process.env environment variable like the PORT and MONGODB_URI - Harold
 app.set('superSecret', authConfig.secret);
 /* eslint-disable no-console */
 const compiler = webpack(config);

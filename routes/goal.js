@@ -29,6 +29,8 @@ goalRoutes.get('/goals/:owner_id', function(req, res, next){
 
 goalRoutes.delete('/goals/:goal_id', function(req, res){
   Goal.remove({_id: req.params.goal_id}, function(err, goal){
+    // recommend you use the same error approach as your
+    // goalRoutes.get above, not a console.log -Harold
     if(err){
       console.log(err);
     } else {

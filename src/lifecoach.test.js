@@ -1,3 +1,5 @@
+// following the test convention for our projects, this should be named
+// LifeGoals.test.js and should be in the components folder next to LifeGoals.js
 import {expect} from 'chai';
 import LifeGoals from './components/LifeGoals';
 

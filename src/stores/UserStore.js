@@ -2,6 +2,9 @@ import {extendObservable} from 'mobx';
 import {browserHistory} from 'react-router';
 import React from 'react';
 
+// Please put some space between your class methods below
+// (constructor, authUser, setUser, ...) - HAROLD
+
 export default class UserStore {
   constructor(){
     extendObservable(this, {

@@ -11,6 +11,7 @@ class Navigation extends React.Component {
   }
 
   render() {
+    // Good indenting - but break long lines up - HAROLD
     return (
 
       <div className="navigationBar">
