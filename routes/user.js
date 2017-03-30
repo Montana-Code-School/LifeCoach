@@ -15,6 +15,9 @@ app.post('/newuser', function(req, res) {
     password: hash.generate(req.body.password)
   });
   user.save(function(err) {
+    // Recommend not doing a throw err as that will take down your server.
+    // Also - we're not sending back the user._id as we won't have that unless
+    // you reference the returned user -Harold
     if (err) throw err;
     // console.log('User saved successfully');
     res.json({ success: true, user: user});

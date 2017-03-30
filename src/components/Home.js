@@ -4,7 +4,7 @@ import { inject, observer } from 'mobx-react';
 import { LinkContainer } from 'react-router-bootstrap';
 
 class Home extends React.Component{
-  render(){
+  render(){ // Would be easier to read with shorter lines below - Harold
     return (
 
       <div className="background-container2">

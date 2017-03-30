@@ -54,6 +54,7 @@ export default class SignUp extends React.Component {
 
 
   render() {
+    // break up long lines below... - Harold
     let signUpForm = (
       <div className="login-form">
 

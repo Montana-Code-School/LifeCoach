@@ -19,6 +19,7 @@ class Wheel extends React.Component{
   }
 
   render(){
+    // JSX below needs a tiny bit more indenting TLC - Harold
     return (
       <div className="background-container2">
         <div className="container">
