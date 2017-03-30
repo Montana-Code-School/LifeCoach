@@ -5,8 +5,11 @@ import config from '../webpack.config.dev';
 import open from 'open';
 const bodyParser = require('body-parser');
 const uriUtil = require('mongodb-uri');
-import User from '../src/models/user';
-import Wheel from '../src/models/wheel';
+import User from '../models/user';
+import Wheel from '../models/wheel';
+import Goal from '../models/goal';
+import wheelRoutes from '../routes/wheel';
+import goalRoutes from '../routes/goal';
 const jwt = require('jsonwebtoken');
 const authConfig = require('./authConfig');
 const morgan = require('morgan');
@@ -21,20 +24,34 @@ const options = {
   replset: { socketOptions: { keepAlive: 1, connectTimeoutMS: 30000 } }
 };
 mongoose.connect(mongooseUri, options);
+
+const port = process.env.PORT || 3000;
 const app = express();
+const PROD = process.env.NODE_ENV === 'production';
+
+
 app.set('superSecret', authConfig.secret);
 /* eslint-disable no-console */
 const compiler = webpack(config);
-const wheelRoutes = require('../src/routes/wheel');
+
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
-app.use(require('webpack-dev-middleware')(compiler, {
-  noInfo: true,
-  publicPath: config.output.publicPath
-}));
-app.use(require('webpack-hot-middleware')(compiler));
-app.use(morgan('dev'));
+
+
+app.use(express.static('public'));
+
+if (PROD) {
+  app.use('/', express.static('dist'));
+} else {
+  // When not in production, enable hot reloading
+  app.use(require('webpack-dev-middleware')(compiler, {
+    noInfo: true,
+    publicPath: config.output.publicPath
+  }));
+  app.use(require('webpack-hot-middleware')(compiler));
+  app.use(morgan('dev'));
+}
 
 app.post('/newuser', function(req, res) {
   let user = new User({
@@ -46,8 +63,7 @@ app.post('/newuser', function(req, res) {
   user.save(function(err) {
     if (err) throw err;
     console.log('User saved successfully');
-    res.json({ success: true,
-               user: user});
+    res.json({ success: true, user: user});
   });
 });
 apiRoutes.post('/authenticate', function(req, res) {
@@ -77,7 +93,7 @@ apiRoutes.post('/authenticate', function(req, res) {
   });
 });
 apiRoutes.use(function(req,res,next) {
-   let token = req.body.token || req.query.token || req.headers['x-access-token'];
+  let token = req.body.token || req.query.token || req.headers['x-access-token'];
   if(token) {
     jwt.verify(token, app.get('superSecret'), function(err, decoded) {
       if(err) {
@@ -103,17 +119,21 @@ apiRoutes.get('/users', function(req, res) {
   });
 });
 app.get('/', function(req, res) {
-  res.sendFile(path.join( __dirname, '../src/index.html'));
+  res.sendFile(path.join( __dirname, '../public/index.html'));
 });
 
 app.use('/wheel', wheelRoutes);
+app.use('/goal', goalRoutes);
+
 app.use('/api', apiRoutes);
 
-const port = 3000;
 app.listen(port, function(err) {
   if (err) {
     console.log(err);
-  } else {
+  } else if (!PROD) {
+    console.log(('Starting app in dev mode, listening on port ' + port).green);
     open(`http://localhost:${port}`);
+  } else {
+    console.log('Starting app in production mode, listening on port ' + port);
   }
 });

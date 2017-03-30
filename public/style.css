@@ -1,0 +1,154 @@
+html {
+width: 100vw;
+height: 100vh;
+}
+body{
+ background: url(./caspar-rubin-398212.jpg) no-repeat center center fixed;
+ -webkit-background-size: cover;
+ -moz-background-size: cover;
+ -o-background-size: cover;
+ background-size: cover;
+}
+.app-container{
+ width: 100vw;
+ height: 100vh;
+ position: relative;
+}
+.login-form{
+ width: 50vw;
+ float: right;
+ padding: 2vw;
+}
+.wheel-container{
+ width:25vw;
+ margin: auto;
+}
+.background-container{
+ background-image: url(./caspar-rubin-39821.jpg);
+ width: 100vw;
+ height: 100vh;
+ background-position: center;
+ background-size: cover;
+}
+
+#app{
+ width: 100vw;
+ height: 100vh;
+}
+.lifecoach{
+ margin:auto;
+ text-align:center;
+ font-family: 'Lobster', cursive;
+ font-size: 15vh;
+ color:white;
+}
+.lifecoach-header{
+ font-family: 'Lobster', cursive;
+ font-size: 5vh;
+}
+.history{
+ background-color: white;
+}
+.slider {
+ width: 10vw;
+}
+.bodyText{
+ text-transform:full-width;
+ font-family: 'Rokkitt', serif;
+ color: rgba(53, 53, 53, 0.65);
+}
+.home-text{
+ margin-top: 25vh;
+ margin-bottom: 25vh;
+ text-align: center;
+}
+.jumbotronHeader{
+ margin-top: 10vh;
+ text-align: center;
+ font-family: 'Lobster', cursive;
+ letter-spacing: 5px;
+ color: maroon;
+}
+.jumbotronHeader2{
+ margin-top: 10vh;
+ text-align: center;
+ font-family: 'Lobster', cursive;
+ letter-spacing: 5px;
+ font-size: 7vh;
+}
+.navigationBar{
+ position: fixed;
+ z-index: 1;
+ width:100vw;
+}
+.introForm{
+ background-color: tan;
+}
+.title{
+ color: white;
+}
+.submitForm {
+ border: 1px solid black;
+ border-radius: 5px;
+ text-align: center;
+ width: 10vw;
+ padding:.5vh;
+}
+.submitForm:hover {
+ background-color: white;
+ cursor:pointer;
+}
+.list-group1{
+ margin-top: 5vh;
+}
+.list-item{
+ margin-top: 1vh;
+}
+.history-slider{
+ text-align: center;
+}
+.home-link{
+ color: maroon;
+}
+.branded{
+ font-family: 'Lobster', cursive;
+ letter-spacing: 5px;
+}
+.subheader{
+ margin-top: 4vh;
+ font-family: 'Lobster', cursive;
+ letter-spacing: 5px;
+ text-align: center;
+ color:maroon;
+}
+.subheader2{
+ margin-top: 8vh;
+ font-size: 75px;
+ font-family: 'Lobster', cursive;
+ letter-spacing: 5px;
+ text-align: center;
+}
+.subheader3{
+ margin-top: 4vh;
+ font-size: 10vh;
+ font-family: 'Lobster', cursive;
+ letter-spacing: 5px;
+ text-align: center;
+ color:maroon;
+}
+.home-link:hover{
+ color: white;
+ cursor: pointer;
+}
+#Canvas1 {
+/*border: dotted 1px black;*/
+}
+.canvasFloat{
+ float:right;
+}
+.wheel-sliders{
+ float:left;
+}
+.canvasCenter{
+ text-align: center;
+}

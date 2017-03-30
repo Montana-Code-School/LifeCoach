@@ -19,29 +19,28 @@ class Login extends React.Component {
   handlePasswordChange(e) {
     this.setState({password: e.target.value});
   }
-    handleUserAuth(event){
-      event.preventDefault();
-      let user = {email: this.state.email, password: this.state.password};
-      this.props.userStore.authUser(user);
-      this.props.userStore.setUser(user);
-      this.setState({email: "", password: ""});
-    }
+
+  handleUserAuth(event){
+    event.preventDefault();
+    let user = {email: this.state.email, password: this.state.password};
+    this.props.userStore.authUser(user);
+    this.props.userStore.setUser(user);
+    this.setState({email: "", password: ""});
+  }
   render(){
     let loginForm = (
       <div>
       <div className="login-form">
-        <Jumbotron>
           <form method="" role="form">
-            <legend>Please Log In</legend>
+            <h1 className="jumbotronHeader">Please Log In</h1>
             <div className="form-group">
               <input onChange={this.handleEmailChange} value={this.state.email} type="text" className="form-control" id="email" placeholder="email"/>
             </div>
             <div className="form-group">
-              <input onChange={this.handlePasswordChange} value={this.state.password}type="text" className="form-control" id="password" placeholder="password"/>
+              <input onChange={this.handlePasswordChange} value={this.state.password}type="password" className="form-control" id="password" placeholder="password"/>
             </div>
-            <button onClick={this.handleUserAuth} type="submit" className="btn btn-primary">Submit</button>
+            <div onClick={this.handleUserAuth} type="submit" className="submitForm"><strong>Log In</strong></div>
           </form>
-        </Jumbotron>
       </div>
     </div>);
     if(this.props.userStore.failedLogin){

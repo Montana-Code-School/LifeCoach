@@ -6,9 +6,8 @@ export default class EntryPage extends React.Component {
   render() {
     return(
 
-      <div className="app-container">
-      {/* Watch JSX Indenting */}
-      <h1> Life Coach </h1>
+      <div className="background-container">
+        <h1 className="lifecoach"> Life Coach </h1>
         <div className="left-container">
           <Login/>
         </div>

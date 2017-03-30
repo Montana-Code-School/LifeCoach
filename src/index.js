@@ -16,12 +16,8 @@ import WheelStore from './stores/WheelStore';
 import History from './components/History';
 import EnsureLoggedInContainer from './components/EnsureLoggedInContainer';
 import EntryPage from './components/EntryPage';
-
 const wheelStore = new WheelStore();
 const userStore = new UserStore();
-
-
-
 
 render((
   <Provider wheelStore={wheelStore} userStore={userStore}>

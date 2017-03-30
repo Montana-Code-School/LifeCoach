@@ -54,30 +54,33 @@ export default class SignUp extends React.Component {
 
 
   render() {
+    let signUpForm = (
+      <div className="login-form">
+
+        <form method="" role="form">
+            <h1 className="jumbotronHeader">Please Sign Up</h1>
+            <div className="form-group">
+              <input onChange={this.handleFirstNameChange} value={this.state.firstName} type="text" className="form-control" id="first-name" placeholder="first name"/>
+            </div>
+            <div className="form-group">
+              <input onChange={this.handleLastNameChange} value={this.state.lastName} type="text" className="form-control" id="last-name" placeholder="last name"/>
+            </div>
+            <div className="form-group">
+              <input onChange={this.handleEmailChange} value={this.state.email} type="text" className="form-control" id="email" placeholder="email"/>
+            </div>
+            <div className="form-group">
+              <input onChange={this.handlePasswordChange} value={this.state.password}type="password" className="form-control" id="password" placeholder="password"/>
+            </div>
+            <div onClick={this.addUserToDatabase} type="submit" className="submitForm"><strong>Sign Up</strong></div>
+         </form>
+
+       </div>
+    );
     return (
       <div>
-       <div className="login-form">
-         <Jumbotron>
-         <form method="" role="form">
-             <legend>Please Sign Up</legend>
-             <div className="form-group">
-               <input onChange={this.handleFirstNameChange} value={this.state.firstName} type="text" className="form-control" id="first-name" placeholder="first name"/>
-             </div>
-             <div className="form-group">
-               <input onChange={this.handleLastNameChange} value={this.state.lastName} type="text" className="form-control" id="last-name" placeholder="last name"/>
-             </div>
-             <div className="form-group">
-               <input onChange={this.handleEmailChange} value={this.state.email} type="text" className="form-control" id="email" placeholder="email"/>
-             </div>
-             <div className="form-group">
-               <input onChange={this.handlePasswordChange} value={this.state.password}type="text" className="form-control" id="password" placeholder="password"/>
-             </div>
-             <button onClick={this.addUserToDatabase} type="submit" className="btn btn-primary">Submit</button>
-          </form>
-          </Jumbotron>
-        </div>
+        {signUpForm}
       </div>
 
     );
-    }
   }
+}

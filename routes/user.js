@@ -17,8 +17,7 @@ app.post('/newuser', function(req, res) {
   user.save(function(err) {
     if (err) throw err;
     // console.log('User saved successfully');
-    res.json({ success: true,
-               user: user});
+    res.json({ success: true, user: user});
   });
 });
 
@@ -54,7 +53,7 @@ userRoutes.post('/authenticate', function(req, res) {
 });
 
 userRoutes.use(function(req,res,next) {
-   let token = req.body.token || req.query.token || req.headers['x-access-token'];
+  let token = req.body.token || req.query.token || req.headers['x-access-token'];
   if(token) {
     jwt.verify(token, app.get('superSecret'), function(err, decoded) {
       if(err) {
@@ -82,4 +81,4 @@ userRoutes.get('/users', function(req, res) {
   });
 });
 
-module.exports = userRoutes;
+export default userRoutes;

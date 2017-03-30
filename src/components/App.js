@@ -4,31 +4,28 @@ import Navigation from './Navigation';
 import { Link } from 'react-router';
 import { inject, observer } from 'mobx-react';
 
-// Why so much white space here in all your files? - HAROLD
-
 class App extends React.Component{
   constructor() {
     super();
-
   }
+
   componentDidMount() {
-    this.props.wheelStore.loadWheelsFromServer();
+    this.props.wheelStore.loadWheelsFromServer(this.props.userStore.userId);
     console.log(this.props.wheelStore.wheels);
   }
   render() {
     return(
       <div>
-      {/* Indent your JSX well below - HAROLD*/}
-      <Navigation/>
-      {this.props.children}
+        <Navigation/>
+        {this.props.children}
       </div>
     );
   }
-
 }
 
 App.propTypes = {
-  wheelStore: React.PropTypes.object
+  wheelStore: React.PropTypes.object,
+  userStore: React.PropTypes.object
 };
 
-export default inject('wheelStore')(observer(App));
+export default inject('wheelStore', 'userStore')(observer(App));

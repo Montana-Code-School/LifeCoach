@@ -2,10 +2,7 @@ import webpack from 'webpack';
 import path from 'path';
 
 export default {
-  devtool: 'inline-source-map',
   entry: [
-    'eventsource-polyfill', // necessary for hot reloading with IE
-    'webpack-hot-middleware/client?reload=true', //note that it reloads the page if hot module reloading fails.
     path.resolve(__dirname, 'src/index')
   ],
   target: 'web',
@@ -14,16 +11,12 @@ export default {
     publicPath: '/',
     filename: 'bundle.js'
   },
-  devServer: {
-    contentBase: path.resolve(__dirname, 'src')
-  },
   plugins: [
-    new webpack.HotModuleReplacementPlugin(),
     new webpack.NoEmitOnErrorsPlugin()
   ],
   module: {
     rules: [
-      {test: /\.js$/, loader: 'babel-loader', exclude: [/node_modules/]},
+      {test: /\.js$/, loader: 'babel-loader'},
       {test: /(\.css)$/, use:[{loader: 'style-loader'}, {loader: 'css-loader'}]},
       {test: /\.eot(\?v=\d+\.\d+\.\d+)?$/, loader: 'file-loader'},
       {test: /\.(woff|woff2)$/, loader: 'url-loader',

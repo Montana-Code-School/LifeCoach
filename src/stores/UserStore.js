@@ -21,6 +21,7 @@ export default class UserStore {
     this.setUser = this.setUser.bind(this);
     this.logUserOut = this.logUserOut.bind(this);
   }
+
   authUser(user) {
     fetch('/api/authenticate', {
       method: 'POST',
@@ -46,19 +47,21 @@ export default class UserStore {
       }
     });
   }
+
   setUser(user) {
     this.email = user.email;
     this.password = user.password;
   }
+
   logUserOut() {
-      this.token = "";
-      this.isLoggedIn = false;
-      this.admin = false;
-      this.firstName= "";
-      this.email= "";
-      this.password= "";
-      this.failedLogin= false;
-      this.userId= "";
-      console.log(this.isLoggedIn);
-    }
+    this.token = "";
+    this.isLoggedIn = false;
+    this.admin = false;
+    this.firstName= "";
+    this.email= "";
+    this.password= "";
+    this.failedLogin= false;
+    this.userId= "";
+    console.log(this.isLoggedIn);
+  }
 }
