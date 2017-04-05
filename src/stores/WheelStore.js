@@ -1,7 +1,7 @@
 import React from 'react';
 import {extendObservable} from 'mobx';
 import { Button, Glyphicon } from 'react-bootstrap';
-import { browserHistory } from 'react-router';
+import { hashHistory } from 'react-router';
 const dateFormat = require('dateformat');
 
 
@@ -74,7 +74,7 @@ export default class WheelStore {
     for(let i = 0; i < this.segs.length; i++){
       this.segs[i].score = 0;
     }
-    browserHistory.replace("/history");
+    hashHistory.replace("/history");
   }
 
 

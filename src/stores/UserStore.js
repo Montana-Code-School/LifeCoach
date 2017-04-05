@@ -1,5 +1,5 @@
 import {extendObservable} from 'mobx';
-import {browserHistory} from 'react-router';
+import {hashHistory} from 'react-router';
 import React from 'react';
 
 export default class UserStore {
@@ -39,7 +39,7 @@ export default class UserStore {
       this.firstName = res.firstName;
       if(res.token){
         this.isLoggedIn = true;
-        browserHistory.replace("/");
+        hashHistory.replace("/");
       } else {
         this.failedLogin = true;
       }
@@ -62,6 +62,6 @@ export default class UserStore {
     this.failedLogin= false;
     this.userId= "";
     console.log(this.isLoggedIn);
-    browserHistory.replace("/");
+    hashHistory.replace("/");
   }
 }

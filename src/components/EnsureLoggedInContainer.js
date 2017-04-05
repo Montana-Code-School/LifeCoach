@@ -1,12 +1,12 @@
 import React from 'react';
-import { browserHistory } from 'react-router';
+import { hashHistory } from 'react-router';
 import { observer, inject } from 'mobx-react';
 
 class EnsureLoggedInContainer extends React.Component {
   componentDidMount() {
 
     if (!this.props.userStore.isLoggedIn) {
-      browserHistory.replace("/entrypage");
+      hashHistory.replace("/entrypage");
     }
   }
 

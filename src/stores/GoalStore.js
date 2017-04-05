@@ -1,5 +1,5 @@
 import {extendObservable} from 'mobx';
-import {browserHistory} from 'react-router';
+import {hashHistory} from 'react-router';
 import React from 'react';
 
 export default class GoalStore {

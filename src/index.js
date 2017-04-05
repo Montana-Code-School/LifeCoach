@@ -1,7 +1,7 @@
 import 'bootstrap/dist/css/bootstrap.css';
 import React from 'react';
 import App from './components/App';
-import { Router, Route, browserHistory, IndexRoute } from 'react-router';
+import { Router, Route, hashHistory, IndexRoute } from 'react-router';
 import { render } from 'react-dom';
 import Home from './components/Home';
 import LifeGoals from './components/LifeGoals';
@@ -23,7 +23,7 @@ const goalStore = new GoalStore();
 
 render((
   <Provider wheelStore={wheelStore} userStore={userStore} goalStore={goalStore}>
-    <Router history={browserHistory}>
+    <Router history={hashHistory}>
     <Route path="/entrypage" component={EntryPage}/>
       <Route component={EnsureLoggedInContainer}>
         <Route path="/" component={App}>
