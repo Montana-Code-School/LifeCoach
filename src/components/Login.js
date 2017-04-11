@@ -1,8 +1,5 @@
 import React from 'react';
 import { observer, inject } from 'mobx-react';
-import { browserHistory, Link } from 'react-router';
-import { Jumbotron, Button } from 'react-bootstrap';
-
 
 class Login extends React.Component {
   constructor() {

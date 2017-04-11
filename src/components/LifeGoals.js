@@ -1,6 +1,5 @@
 import React from 'react';
-import { Jumbotron, FormGroup, FormControl, ControlLabel, Button, MenuItem, Row, Col } from 'react-bootstrap';
-import DisplayLifeGoals from './DisplayLifeGoals';
+import { FormGroup, FormControl, ControlLabel, Row, Col } from 'react-bootstrap';
 import { inject, observer } from 'mobx-react';
 import BacklogColumn from './BacklogColumn';
 import PriorityColumn from './PriorityColumn';
@@ -26,8 +25,6 @@ class LifeGoals extends React.Component{
     this.prepareOptions = this.prepareOptions.bind(this);
     this.handleGoalAdd = this.handleGoalAdd.bind(this);
     this.handleSelect = this.handleSelect.bind(this);
-    this.prepareColumns = this.prepareColumns.bind(this);
-    this.prepareLabels = this.prepareLabels.bind(this);
     this.filterGoals = this.filterGoals.bind(this);
     this.randomQuote = this.randomQuote.bind(this);
   }
@@ -67,7 +64,7 @@ class LifeGoals extends React.Component{
       body: JSON.stringify({
         value: this.state.valuesArr[index],
         lifeGoal: this.state.lifeGoal,
-        status: "backlog",
+        status: "goals",
         owner: this.props.userStore.userId
       })
     })
@@ -98,34 +95,10 @@ class LifeGoals extends React.Component{
     return optionArr;
   }
 
-  prepareLabels(){
-    let labelArr = [];
-    this.props.goalStore.columnLabels.forEach((label, index) =>
-      labelArr.push(
-        <Col md={3} style={{textAlign: 'center'}}>
-          <h3 className="column-labels">{this.props.goalStore.columnLabels[index].toUpperCase()}</h3>
-        </Col>
-      ));
-    labelArr.pop();
-    return labelArr;
-  }
-
-  prepareColumns(){
-    let columnArr = [];
-    this.props.goalStore.columnLabels.forEach((label, index) =>
-      columnArr.push(
-          <Column key={index}>
-            Goals
-          </Column>
-      ));
-    return columnArr;
-  }
-
   render(){
     let selectValue = <div><h4>Please select a Life Category</h4></div>;
     let writeGoal = <div><h4>Please write a Goal</h4></div>;
     let optionArr = this.prepareOptions();
-    // let columnArr = this.prepareColumns();
     let goalForm = (
       <form>
         <FormGroup controlId="formControlsSelect">
@@ -144,7 +117,6 @@ class LifeGoals extends React.Component{
       </form>
     );
 
-
     return (
       <div className="parent">
         <div className="container">
@@ -153,11 +125,11 @@ class LifeGoals extends React.Component{
          {goalForm}
          {this.state.failedSelect ? selectValue : ""}
          {this.state.failedWriteGoal ? writeGoal: ""}
-        <Row >
-          <BacklogColumn goalsArr={this.state.goalsArr}/>
-          <PriorityColumn/>
-          <TodayColumn/>
-          <CompleteColumn/>
+          <Row >
+            <BacklogColumn goalsArr={this.state.goalsArr}/>
+            <PriorityColumn/>
+            <TodayColumn/>
+            <CompleteColumn/>
           </Row>
         </div>
       </div>

@@ -4,13 +4,9 @@ import { Button, Glyphicon } from 'react-bootstrap';
 import { browserHistory } from 'react-router';
 const dateFormat = require('dateformat');
 
-
-
 export default class WheelStore {
   constructor(){
     extendObservable(this, {
-      // date: "",
-
       segs: [
         {value: 'Career  ', score: 0},
         {value: 'Financial  ', score: 0},
@@ -39,21 +35,14 @@ export default class WheelStore {
       historyIndex: 0,
       newWheel: true
     });
-    // this.handleDelete = this.handleDelete.bind(this);
     this.loadWheelsFromServer = this.loadWheelsFromServer.bind(this);
-    // this.setDate = this.setDate.bind(this);
     this.addNewWheel = this.addNewWheel.bind(this);
     this.loadCanvas = this.loadCanvas.bind(this);
     this.loadHistoryCanvas = this.loadHistoryCanvas.bind(this);
-    this.loadHomeCanvas = this.loadHomeCanvas.bind(this);
     this.loadLastWheel = this.loadLastWheel.bind(this);
     this.resetWheel = this.resetWheel.bind(this);
   }
-  // setDate(){
-  //   let date = new Date;
-  //   this.date = date;
-  //   return dateFormat(date, "dddd, mmmm dS, yyyy, h:MM TT");
-  // }
+
   addNewWheel(ownerId) {
     let segs = [];
     for(let i = 0; i < this.segs.length; i++){
@@ -137,9 +126,6 @@ export default class WheelStore {
           ctx.arc(x,y,r,(i * -rad), (i * -rad) - rad, true);
           ctx.fill();
           ctx.stroke();
-          // ctx.arc(x,y,r,(i * -rad), (i * -rad) - rad, true);
-          // ctx.fillStyle = backgroundColorArr[i];
-          // ctx.fill();
           ctx.beginPath();
           ctx.moveTo(x,y);
           ctx.arc(x, y, this.segs[i].score * (r / 10), (i * -rad), (i * -rad) - rad, true);
@@ -194,12 +180,6 @@ export default class WheelStore {
           ctx.arc(x,y,r,(i * -rad), (i * -rad) - rad, true);
           ctx.fill();
           ctx.stroke();
-
-          // ctx.beginPath();
-          // ctx.moveTo(x,y);
-          // ctx.arc(x,y,r,(i * -rad), (i * -rad) - rad, true);
-          // ctx.fillStyle = backgroundColorArr[i];
-          // ctx.fill();
           ctx.beginPath();
           ctx.moveTo(x,y);
           ctx.arc(x, y, this.wheels[this.historyIndex].segs[i].score * (r / 10), (i * -rad), (i * -rad) - rad, true);
@@ -225,57 +205,4 @@ export default class WheelStore {
     }
     return theCanvas;
   }
-
-  loadHomeCanvas(){
-    let theCanvas = document.getElementById('Canvas2');
-    if (theCanvas && theCanvas.getContext) {
-      let ctx = theCanvas.getContext("2d");
-      if (ctx) {
-        let lastWheelIndex = this.wheels.length - 1;
-        let x = 200;
-        let y = 200;
-        let r = 190;
-        let a = 360/this.segs.length;
-        let rad = a * (Math.PI / 180);
-        let colorArr = ["#FF3251", "#FF7A32", "#3251FF", "#32FF7A", "#7A32FF", "#E032FF", "#FFE032", "#32B7FF"];
-        let backgroundColorArr = ["#FFB2BC", "#FFCEB2", "#B2E2FF", "#BCFFB2", "#CEB2FF", "#F4B2FF", "#FFF4B2", "#B2FFF4"];
-        let symbolArr = [
-          '\uf0b1',
-          ' \uf155',
-          '\uf29a',
-          '\uf21e',
-          '\uf02d',
-          '\uf0c0',
-          '\uf2b5',
-          '\uf0ac'
-        ];
-
-        for(let i = 0; i < this.segs.length; i++){
-          ctx.beginPath();
-          ctx.moveTo(x,y);
-          ctx.arc(x,y,r,(i * -rad), (i * -rad) - rad, true);
-          ctx.fillStyle = backgroundColorArr[i];
-          ctx.fill();
-          ctx.beginPath();
-          ctx.moveTo(x,y);
-          ctx.arc(x, y, this.wheels[lastWheelIndex].segs[i].score * (r / 10), (i * -rad), (i * -rad) - rad, true);
-          ctx.fillStyle = colorArr[i];
-          ctx.fill();
-          ctx.fillStyle = "rgb(70,70,70)";
-          ctx.font='30px FontAwesome';
-          ctx.fillText(symbolArr[i], x - 15 + ((r * 0.85) * Math.cos((i * -rad) - (rad/2))), y + 10 + ((r * 0.85) * Math.sin((i * -rad) - (rad/2))));
-        }
-      }
-    }
-    return theCanvas;
-  }
 }
-//   handleDelete(imgId) {
-//     let newList = this.images.filter(img => img._id !== imgId);
-//     let allnewList = this.allImages.filter(img => img._id !== imgId);
-//     this.images = newList;
-//     this.allImages = allnewList;
-//     fetch('/gifs/' + imgId, {
-//       method: 'DELETE'
-//     });
-//   }

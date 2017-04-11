@@ -31,20 +31,16 @@ const PROD = process.env.NODE_ENV === 'production';
 
 
 app.set('superSecret', authConfig.secret);
-/* eslint-disable no-console */
 const compiler = webpack(config);
-
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
-
 
 app.use(express.static('public'));
 
 if (PROD) {
   app.use('/', express.static('dist'));
 } else {
-  // When not in production, enable hot reloading
   app.use(require('webpack-dev-middleware')(compiler, {
     noInfo: true,
     publicPath: config.output.publicPath

@@ -1,8 +1,5 @@
 import React from 'react';
-import { Jumbotron } from 'react-bootstrap';
 import { observer, inject } from 'mobx-react';
-
-
 
 class SignUp extends React.Component {
   constructor(props) {
@@ -76,7 +73,7 @@ class SignUp extends React.Component {
     );
 
     let signUpForm = (
-      <div style={{width:"240px"}}>
+      <div className="signup-form">
         <h1 className="bodyText">Sign Up</h1>
         <form method="" role="form">
             <div className="form-group">

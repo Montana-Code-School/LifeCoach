@@ -4,9 +4,10 @@ height: 100vh;
 }
 
 .signup-form{
-  width: 50vw;
-  padding: 2vw;
+  color:#F9A603;
+  width:240px;
   position:relative;
+  margin-bottom: 50px;
 }
 
 .signup-message{
@@ -19,14 +20,6 @@ height: 100vh;
   text-align: center;
   color: black;
   font-family: 'Rokkitt', serif;
-}
-
-.background-container{
- background-image: url(IMG_2036.jpg);
- width: 100vw;
- height: 100vh;
- background-position: center;
- background-size: cover;
 }
 
 .lifecoach{
@@ -281,4 +274,17 @@ font-family: 'Rokkitt', serif;
 
 .entry-title{
   font-weight: 800;
+}
+
+.entry-pic{
+  background-image: url(./Life-coaching1.jpg);
+  background-size: cover;
+  width: 100vw;
+  height: auto;
+  min-height: 82vh;
+  background-repeat:no-repeat;
+  display:flex;
+  align-items:center;
+  flex-wrap:wrap;
+  justify-content:space-around;
 }

@@ -58,7 +58,7 @@ export default class GoalStore {
   makeBacklog(goal, e){
     this.changeStatus(goal._id, 0);
     this.goalsArr = this.goalsArr.filter(g => g._id !== goal._id);
-    goal.status = "backlog";
+    goal.status = "goals";
     this.goalsArr.push(goal);
   }
 
@@ -97,5 +97,4 @@ export default class GoalStore {
       }
     }
   }
-
 }

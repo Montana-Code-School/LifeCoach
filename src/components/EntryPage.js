@@ -11,8 +11,7 @@ export default class EntryPage extends React.Component {
           <span><h1 className="lifecoach">Life&nbsp;Coach</h1></span>
           <Login/>
         </div>
-
-        <div style={{backgroundImage: 'url(./Life-coaching1.jpg)', backgroundSize: 'cover', height: '80vh', display:'flex', alignItems:'center', flexWrap:'wrap', justifyContent:'space-around'}}>
+        <div className="entry-pic">
                 <div className="bodyText">
                   <div className="home-text">
                     <h1 className="entry-title"> Are you ready to realize your full potential?</h1>
@@ -39,9 +38,7 @@ export default class EntryPage extends React.Component {
                      </div>
                   </div>
                 </div>
-
             <SignUp/>
-
         </div>
       </div>
     );

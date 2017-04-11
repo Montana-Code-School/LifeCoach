@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router';
 import { observer, inject } from 'mobx-react';
 import { Navbar, Nav, NavItem, NavDropdown } from 'react-bootstrap';
-import {NavbarHeader, NavbarToggle, NavbarCollapse, NavbarBrand} from 'react-bootstrap/lib/NavbarHeader';
+import { NavbarHeader, NavbarToggle, NavbarCollapse, NavbarBrand } from 'react-bootstrap/lib/NavbarHeader';
 import { LinkContainer } from 'react-router-bootstrap';
 
 class Navigation extends React.Component {

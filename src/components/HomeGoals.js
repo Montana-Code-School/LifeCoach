@@ -1,6 +1,5 @@
 import React from 'react';
 import {Col} from 'react-bootstrap';
-import DisplayLifeGoals from './DisplayLifeGoals';
 import { inject, observer } from 'mobx-react';
 
 class HomeGoals extends React.Component{

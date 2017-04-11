@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactBootstrapSlider from 'react-bootstrap-slider';
-import {Row, Col } from 'react-bootstrap';
+import { Row } from 'react-bootstrap';
 import { inject, observer } from 'mobx-react';
 
 

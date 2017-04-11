@@ -2,17 +2,14 @@ import React from "react";
 import { inject, observer } from 'mobx-react';
 
 class WheelCanvas extends React.Component{
-  constructor(){
-    super();
-    // this.loadCanvas = this.loadCanvas.bind(this);
-  }
+
   componentDidMount(){
     this.props.wheelStore.loadCanvas();
     this.props.wheelStore.wheelSaved = false;
   }
 
   render(){
-  
+
     return (
       <div>
         <canvas id="Canvas1" width="550" height="550">Your browser does not support canvas.</canvas>

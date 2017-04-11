@@ -1,11 +1,9 @@
 import React from 'react';
 import ReactBootstrapSlider from 'react-bootstrap-slider';
 import { observer, inject } from 'mobx-react';
-import {Row, Col, Button, Jumbotron, Glyphicon } from 'react-bootstrap';
 import Slider from './Slider';
 import WheelCanvas from './WheelCanvas';
 import dateFormat from 'dateformat';
-
 
 class Wheel extends React.Component{
   constructor(){
@@ -79,7 +77,7 @@ class Wheel extends React.Component{
               </div>
             </div>
         </div>
-      </div>  
+      </div>
     );
   }
 }

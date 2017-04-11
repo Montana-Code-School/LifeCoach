@@ -1,6 +1,5 @@
 import React from 'react';
 import { inject, observer } from 'mobx-react';
-import { Table, Jumbotron } from 'react-bootstrap';
 import ReactBootstrapSlider from 'react-bootstrap-slider';
 import dateFormat from 'dateformat';
 
@@ -20,8 +19,6 @@ class History extends React.Component{
     this.props.wheelStore.loadHistoryCanvas();
   }
 
-
-
   setTicksArr(){
     this.props.wheelStore.loadHistoryCanvas();
     let ticksArr = [];
@@ -32,7 +29,6 @@ class History extends React.Component{
   }
 
   render(){
-
     if(this.props.wheelStore.wheels.length > 0){
       let wheelArray = this.props.wheelStore.wheels;
       let index = this.props.wheelStore.historyIndex;
@@ -52,7 +48,7 @@ class History extends React.Component{
               </div>
                 <div className="history-slider">
                   <h2 className="bodyText">Your History</h2>
-                  <ReactBootstrapSlider 
+                  <ReactBootstrapSlider
                     value={index + 1}
                     change={this.changeHistoryIndex}
                     step={this.props.wheelStore.step}
@@ -70,8 +66,8 @@ class History extends React.Component{
       return (
         <div className="parentHist">
           <div className="container">
-              <h1 className="jumbotronHeader2">Your History</h1>
-            <div className="subheader3">Head to the Wheel Of Life page to begin your self assessment! </div>
+              <h1 className="jumbotronHeader2">History</h1>
+            <div className="subheader3">Head over to the Wheel Of Life page to begin your self-assessment! </div>
           </div>
         </div>
       );
